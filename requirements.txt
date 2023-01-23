@@ -1,0 +1,6 @@
+yfinance 
+bs4
+urllib3
+plotly
+nltk
+matplotlib
