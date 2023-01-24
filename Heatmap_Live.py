@@ -113,7 +113,7 @@ d = {'Symbol': tickers, 'Sector': sectors, 'Industry': industries, 'Market Cap':
 df_info = pd.DataFrame(data=d)
 
 # Get Names of Companies from the Dow Jones DataFrame obtained Earlier
-df_info_name = df_info.merge(df_dow_jones[['Company', 'Symbol']], on = 'Symbol')
+df_info_name = df_info.merge(df_dow[['Company', 'Symbol']], on = 'Symbol')
 
 # Join Stock Information and Sentiment Information
 df = mean_scores.merge(df_info_name, left_on = 'ticker', right_on = 'Symbol')
