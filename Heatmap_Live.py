@@ -130,7 +130,7 @@ figx = px.treemap(df, path=[px.Constant("Dow Jones"), 'Sector', 'Industry', 'Sym
                   color_continuous_scale=['#FF0000', "#000000", '#00FF00'],
                   color_continuous_midpoint=0)
 
-figx.data[0].customdata = df[['Company', 'Negative', 'Neutral', 'Positive', 'Sentiment Score']].round(3) # round to 3 decimal places
+figx.data[0].customdata = df[['Company']].round(3) # round to 3 decimal places
 figx.data[0].texttemplate = "%{label}<br>%{customdata[4]}"
 
 figx.update_traces(textposition="middle center")
