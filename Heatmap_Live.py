@@ -19,7 +19,7 @@ import nltk
 nltk.downloader.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-#For importing tickers from Dow Jones Index
+#For importing tickers from Dow Jones Index     
 df_dow = pd.read_html("https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average")[1]
 tickers = df_dow['Symbol'].tolist()
 
@@ -125,16 +125,16 @@ df = df.rename(columns={"compound": "Sentiment Score", "neg": "Negative", "neu":
 # the color of the chart follows the sentiment score
 # when the mouse is hovered over each box in the chart, the negative, neutral, positive and overall sentiment scores will all be shown
 # the color is red (#ff0000) for negative sentiment scores, black (#000000) for 0 sentiment score and green (#00FF00) for positive sentiment scores
-fig = px.treemap(df, path=[px.Constant("Dow Jones"), 'Sector', 'Industry', 'Symbol'], values='Market Cap',
-                  color='Sentiment Score', hover_data=['Company', 'Negative', 'Neutral', 'Positive', 'Sentiment Score'],
+figx = px.treemap(df, path=[px.Constant("Dow Jones"), 'Sector', 'Industry', 'Symbol'], values='Market Cap',
+                  color= ['Sentiment Score'], hover_data=['Company'],
                   color_continuous_scale=['#FF0000', "#000000", '#00FF00'],
                   color_continuous_midpoint=0)
 
-fig.data[0].customdata = df[['Company', 'Negative', 'Neutral', 'Positive', 'Sentiment Score']].round(3) # round to 3 decimal places
-fig.data[0].texttemplate = "%{label}<br>%{customdata[4]}"
+figx.data[0].customdata = df[['Company', 'Negative', 'Neutral', 'Positive', 'Sentiment Score']].round(3) # round to 3 decimal places
+figx.data[0].texttemplate = "%{label}<br>%{customdata[4]}"
 
-fig.update_traces(textposition="middle center")
-fig.update_layout(margin = dict(t=30, l=10, r=10, b=10), font_size=20)
+figx.update_traces(textposition="middle center")
+figx.update_layout(margin = dict(t=30, l=10, r=10, b=10), font_size=20)
 
 #to get current date, time and timezone to print to the html page
 now  = datetime.now()
@@ -149,4 +149,5 @@ with open('dow_jones_live_sentiment.html', 'a') as f:
     description = "This dashboard is updated every half an hour with sentiment analysis performed on latest scraped news headlines from the FinViz website.<br><br>"
     author = """<p> | Made with <3 by Rajarshi. <a href="https://rajarshi.super.site">Personal Page</a> </p> <p> Inspired by Damian Boh </p>"""
     f.write(title + updated + description + author)
-    f.write(fig.to_html(full_html=False, include_plotlyjs='cdn')) # write the fig created above into the html file
+    f.write(figx.to_html(full_html=False, include_plotlyjs='cdn')) # write the figx created above into the html file
+
