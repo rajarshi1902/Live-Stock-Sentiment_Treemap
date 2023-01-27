@@ -145,9 +145,9 @@ timezone_string = datetime.now().astimezone().tzname()
 # Generate HTML File with Updated Time and Treemap
 with open('dow_jones_live_sentiment.html', 'a') as f:
     f.truncate(0) # clear file if something is already written on it
-    title = "<centre><h1>Dow Jones Stock Sentiment Dashboard</h1></centre>"
-    updated = "<h2>Last updated: " + dt_string + " (Timezone: " + timezone_string + ")</h2>"
-    description = "This dashboard is updated every half an hour with sentiment analysis performed on latest scraped news headlines from the FinViz website.<br><br>"
-    author = """<p> | Made with <3 by Rajarshi. <a href="https://rajarshi.super.site">Personal Page</a> </p> <p> Inspired by Damian Boh </p>"""
+    title = "<h1><centre>Dow Jones Stock Sentiment Dashboard</centre></h1>"
+    updated = "<h3>Last updated: " + dt_string + " (Timezone: " + timezone_string + ")</h3>"
+    description = "<h6>This dashboard is updated every half an hour with sentiment analysis performed on latest scraped news headlines from the FinViz website.</h6><br>"
+    author = """<p> | Made with <3 by Rajarshi. <a href="https://github.com/rajarshi1902/Live-Stock-Sentiment_Treemap">Github Repo</a> </p> <p> Inspired by Damian Boh </p>"""
     f.write(title + updated + description + author)
     f.write(fig.to_html(full_html=False, include_plotlyjs='cdn')) # write the figx created above into the html file
