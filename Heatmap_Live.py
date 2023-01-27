@@ -150,4 +150,4 @@ with open('dow_jones_live_sentiment.html', 'a') as f:
     description = "This dashboard is updated every half an hour with sentiment analysis performed on latest scraped news headlines from the FinViz website.<br><br>"
     author = """<p> | Made with <3 by Rajarshi. <a href="https://rajarshi.super.site">Personal Page</a> </p> <p> Inspired by Damian Boh </p>"""
     f.write(title + updated + description + author)
-    f.write(figx.to_html(full_html=False, include_plotlyjs='cdn')) # write the figx created above into the html file
+    f.write(fig.to_html(full_html=False, include_plotlyjs='cdn')) # write the figx created above into the html file
