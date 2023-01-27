@@ -22,9 +22,9 @@ This project is inspired from the treemap plots available on websites like FinVi
 In this project, the Dow Jones tinkers are being analysed through their market decisions and the sentiment generated from it. The project is end-to-end starting from the scraper to the sentiment analyzer then finally the treeplot and hosting. 
 
 The project has three parts: 
-1. News Scraper : The scraper uses the FinViz website and extracts all news headlines for a particular tinker using Beautiful Soup. The data is then stored into a list which is then stored into a dataframe. You can checkout Sentiment_scraper.ipynb for details.
-2. The dataframe is then fed into the Vader library which analyses each headline and allots it a score based on the analysis.
-3. The dataset, along with the sentiments and other data required, is visualised in the treemap which is live. 
+1. News Scraper: The scraper uses the FinViz website and extracts all news headlines for a particular tinker using Beautiful Soup. The data is then stored into a list which is then stored into a dataframe. You can checkout Sentiment_scraper.ipynb for details.
+2. Natural Language Processing: The dataframe is then fed into the Vader library which analyses each headline and allots it a score based on the analysis.
+3. Plotly: The dataset, along with the sentiments and other data required, is visualised in the treemap which is live. 
 
 
 ### Automation Setup
@@ -39,4 +39,4 @@ An accompanying Jupyter notebook "Heatmap_updated.ipynb" is included for explora
 <!-- USAGE EXAMPLES -->
 ### Usage
 
-This treemap can be used to assist individuals to make financial decisions. That said, this project, by no means, is to be used solely for making investing choices. Please do your own proper research. 
+This treemap can be used to assist individuals to make financial decisions. That said, this project, by no means, is to be used solely for making investing choices. Please do your own research. 
